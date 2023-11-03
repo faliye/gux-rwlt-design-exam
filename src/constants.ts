@@ -20,7 +20,7 @@ export const MATTER_SETTING = {
     ]
 };
 
-export const CLASSIFACTION_SETTING  = {
+export const CLASSIFACTION_SETTING = {
     title: '表示分類',
     data: [
         {
@@ -39,9 +39,9 @@ export const CLASSIFACTION_SETTING  = {
 }
 
 
-export const DISPLAY_TYPE_SETTING ={
+export const DISPLAY_TYPE_SETTING = {
     // CLASSIFACTION_ARR === 0
-    0:{
+    0: {
         title: '表示区分',
         data: [
             {
@@ -81,7 +81,7 @@ export const DISPLAY_TYPE_SETTING ={
 };
 
 export const GERDER_SETTING = {
-    title:'性別',
+    title: '性別',
     data: [
         {
             title: '総数',

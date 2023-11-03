@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {GlobalState} from './store.d'
+import { GlobalState } from './store.d'
 
 export const globalStateSlice = createSlice({
     name: "global",
@@ -7,12 +7,12 @@ export const globalStateSlice = createSlice({
         loading: false,
     },
     reducers: {
-       setLoadingState: (state: GlobalState,action) => {
-        state.loading = action.payload;
-       },   
+        setLoadingState: (state: GlobalState, action) => {
+            state.loading = action.payload;
+        },
     },
 });
-    
+
 export const { setLoadingState } = globalStateSlice.actions;
-    
+
 export default globalStateSlice.reducer;

@@ -1,12 +1,12 @@
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Outlet } from "react-router-dom";
 import { RootState } from '../../store';
 
 import avatar from '../../img/Avatar.svg';
 import './layout.css';
 
-function Layout(){
-  const email = useSelector((state: RootState) =>state.userInfoState.email);
+function Layout() {
+  const email = useSelector((state: RootState) => state.userInfoState.email);
   return (
     <div className="layout">
       <header className="layout-header">

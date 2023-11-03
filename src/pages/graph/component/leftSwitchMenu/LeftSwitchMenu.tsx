@@ -15,16 +15,16 @@ import {
 
 import './leftSwitchMenu.css';
 
-function LeftSwitchMenu(){
-    const {matter,classification,displayType,gender} = useSelector((state:RootState )=>state.graphStateSlice);
+function LeftSwitchMenu() {
+    const { matter, classification, displayType, gender } = useSelector((state: RootState) => state.graphStateSlice);
     const dispatch = useDispatch();
     const [displayTypeSetting, setDisplayTypeSetting] = useState(DISPLAY_TYPE_SETTING[0]);
 
-    const onChange = useCallback((keyName: GraphParamsKeys, v: ChangeEvent<HTMLInputElement>)=>{
+    const onChange = useCallback((keyName: GraphParamsKeys, v: ChangeEvent<HTMLInputElement>) => {
         // classification分類を変更して、パーティションを変更して、デフォルト値をリセットする。
-        if( keyName === "classification"){
+        if (keyName === "classification") {
             const k: string = v.target.value;
-            if(k){
+            if (k) {
                 setDisplayTypeSetting(DISPLAY_TYPE_SETTING[k as unknown as keyof typeof DISPLAY_TYPE_SETTING])
                 dispatch(setParamsState({
                     key: 'displayType',
@@ -37,7 +37,7 @@ function LeftSwitchMenu(){
             key: keyName,
             value: v.target.value,
         }));
-    },[dispatch]);
+    }, [dispatch]);
 
     return (
         <div className="left-menu-box">
@@ -46,25 +46,25 @@ function LeftSwitchMenu(){
                 title={MATTER_SETTING.title}
                 groupData={MATTER_SETTING.data}
                 value={matter}
-                onChange={(v)=>onChange('matter',v)}
-            /> 
-             <RadioGroup
+                onChange={(v) => onChange('matter', v)}
+            />
+            <RadioGroup
                 title={CLASSIFACTION_SETTING.title}
                 groupData={CLASSIFACTION_SETTING.data}
                 value={classification}
-                onChange={(v)=>onChange('classification',v)}
+                onChange={(v) => onChange('classification', v)}
             />
-             <RadioGroup
+            <RadioGroup
                 title={displayTypeSetting.title}
                 groupData={displayTypeSetting.data}
                 value={displayType}
-                onChange={(v)=>onChange('displayType',v)}
+                onChange={(v) => onChange('displayType', v)}
             />
             <RadioGroup
                 title={GERDER_SETTING.title}
                 groupData={GERDER_SETTING.data}
                 value={gender}
-                onChange={(v)=>onChange('gender',v)}
+                onChange={(v) => onChange('gender', v)}
             />
         </div>
     )

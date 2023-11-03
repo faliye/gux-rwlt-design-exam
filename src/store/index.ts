@@ -4,7 +4,7 @@ import userInfoState from './userInfoSlice';
 import graphStateSlice from './graphStateSlice';
 
 export const store = configureStore({
-    reducer:{
+    reducer: {
         globalState,
         userInfoState,
         graphStateSlice,

@@ -3,12 +3,12 @@ import {
   RouteObject,
 } from "react-router-dom";
 
-import {Layout} from './component'
+import { Layout } from './component'
 
 import Login from "./pages/logIn/Login";
 import Graph from "./pages/graph/Graph";
 
-export const routeConfig: RouteObject[]=[
+export const routeConfig: RouteObject[] = [
   {
     path: '',
     element: <Login />,
@@ -16,10 +16,10 @@ export const routeConfig: RouteObject[]=[
   {
     path: '/',
     element: <Layout />,
-    children:[
+    children: [
       {
         path: 'graph',
-        element: <Graph /> 
+        element: <Graph />
       }
     ]
   }

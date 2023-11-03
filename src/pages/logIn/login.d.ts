@@ -1,3 +1,3 @@
-export interface LoginProps{
-    children?: React.ReactNode;
-  }
+export interface LoginProps {
+  children?: React.ReactNode;
+}

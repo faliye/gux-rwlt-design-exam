@@ -9,7 +9,7 @@ axios.interceptors.request.use(
   (config: any) => {
     return {
       ...config,
-      headers:{
+      headers: {
         'x-api-key': 'sti4aCf6JAliQkmewbleLphIx0uTTUk7TzPZzruX'
       }
     };
@@ -36,7 +36,7 @@ axios.interceptors.response.use(
         case 401:
           break;
         case 403:
-          setTimeout(() => {}, 1000);
+          setTimeout(() => { }, 1000);
           break;
 
         // 404
@@ -50,7 +50,7 @@ axios.interceptors.response.use(
   },
 );
 
-export function get(url: string, params: any) {
+export function get<T>(url: string, params: any): Promise<T> {
   return new Promise((resolve, reject) => {
     axios
       .get(url, {

@@ -12,15 +12,15 @@ export const graphStateSlice = createSlice({
         data: [],
     },
     reducers: {
-        setParamsState: (state: GraphState,action: GraphParamsAction ) => {
+        setParamsState: (state: GraphState, action: GraphParamsAction) => {
             state[action.payload.key] = action.payload.value;
         },
-       setDataState: (state,action) => {
-        state.data = action.payload;
-       },   
+        setGrapnDataState: (state, action) => {
+            state.data = action.payload;
+        },
     },
 });
-    
-export const { setParamsState,setDataState } = graphStateSlice.actions;
-    
+
+export const { setParamsState, setGrapnDataState } = graphStateSlice.actions;
+
 export default graphStateSlice.reducer;
