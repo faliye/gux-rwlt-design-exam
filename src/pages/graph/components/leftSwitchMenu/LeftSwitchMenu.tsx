@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RadioGroup } from '../../../../component';
+import { RadioGroup } from '../../../../components';
 import { RootState } from '../../../../store';
 import { setParamsState } from '../../../../store/graphStateSlice';
 import { GraphParamsKeys } from '../../../../store/store';

@@ -3,7 +3,7 @@ import {
   RouteObject,
 } from "react-router-dom";
 
-import { Layout } from './component'
+import { Layout } from './components'
 
 import Login from "./pages/logIn/Login";
 import Graph from "./pages/graph/Graph";

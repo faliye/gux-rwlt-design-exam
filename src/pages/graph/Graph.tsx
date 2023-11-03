@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
-import { LeftSwitchMenu, GraphBox } from './component';
+import { LeftSwitchMenu, GraphBox } from './components';
 import { setGrapnDataState } from '../../store/graphStateSlice';
 import { getGraph } from '../../service/graph';
 
