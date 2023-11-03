@@ -1,0 +1,1 @@
+export const GET_GRAPH = '/employEducation/localjobAcademic/toTransition';

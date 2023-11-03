@@ -14,17 +14,17 @@ function Login (){
   const loginClickHandle=useCallback((e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
     e.preventDefault();
     navigator('/graph');
-  },[]);
+  },[navigator]);
   
   // メールアドレス Inputbox
   const setEmailHandle = useCallback((v:React.ChangeEvent<HTMLInputElement>)=>{
     dispatch(setEmail(v.target.value));
-  },[]);
+  },[dispatch]);
 
   // パスワード Inputbox
   const setPsdHandle = useCallback((v:React.ChangeEvent<HTMLInputElement>)=>{
     dispatch(setPsd(v.target.value));
-  },[]);
+  },[dispatch]);
 
   return (
     <div className="login">

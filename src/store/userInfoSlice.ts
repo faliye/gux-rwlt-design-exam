@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { UseInfoState } from './store';
 
 export const userInfoStateSlice = createSlice({
     name: "userInfo",

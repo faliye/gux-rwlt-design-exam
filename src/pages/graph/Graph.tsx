@@ -1,26 +1,18 @@
-import React, {
-  useEffect,
-  useCallback,
-} from 'react';
-import {useSelector} from 'react-redux';
+import {useEffect} from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
-import { 
-  LeftSwitchMenu,
-  GraphBox,
- } from './component';
-
+import { LeftSwitchMenu, GraphBox} from './component';
+import { getGraph } from '../../service/graph';
 
 import './graph.css';
 
-// CustomizedLabelLineChart
-
-
-
 function Graph(){
+  const {matter,classification,displayType,gender} = useSelector((state:RootState )=>state.graphStateSlice);
   useEffect(()=>{
-    console.log("fetch");
-  },[]);
-  
+    getGraph({matter,classification,displayType,gender}).then(res=>console.log(res));
+  },[matter,classification,displayType,gender]);
+
   return (
     <div className="graph">
       <LeftSwitchMenu />

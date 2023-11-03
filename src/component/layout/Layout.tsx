@@ -1,17 +1,12 @@
 import {useSelector} from 'react-redux';
 import { Outlet } from "react-router-dom";
-
+import { RootState } from '../../store';
 
 import avatar from '../../img/Avatar.svg';
 import './layout.css';
 
-// CustomizedLabelLineChart
-
-
-
-function Layout(props:any){
-  const email = useSelector((state: any) =>state.userInfoState.email);
-  console.log(props)
+function Layout(){
+  const email = useSelector((state: RootState) =>state.userInfoState.email);
   return (
     <div className="layout">
       <header className="layout-header">

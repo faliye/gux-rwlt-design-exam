@@ -1,3 +1,6 @@
+
+
+
 export interface GlobalState{
     loading: boolean,
 }
@@ -15,10 +18,12 @@ export interface GraphState{
     data: any[],
 }
 
+export type GraphParamsKeys = keyof Omit<GraphState, 'data'>;
+
 export interface GraphParamsAction {
     type: string,
     payload: {
-        key: keyof Omit<GraphState, 'data'>,
+        key: GraphParamsKeys,
         value: string
     },
 };
