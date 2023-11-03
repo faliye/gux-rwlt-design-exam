@@ -1,30 +1,30 @@
-import React from 'react';
+import React,{useCallback} from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 
-import { setEmail, setPsd } from '../../reduxModel/store/globalState';
+import { setEmail, setPsd } from '../../store/userInfoSlice';
 
 import './login.css';
-
 
 function Login (){
   const navigator = useNavigate();
   const dispatch = useDispatch();
-
-  const loginClickHandle=(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
-    e.preventDefault();
-    navigator('/graph')
-  }
   
-  //
-  const setEmailHandle = (v:React.ChangeEvent<HTMLInputElement>)=>{
+  // ログイン btn 
+  const loginClickHandle=useCallback((e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
+    e.preventDefault();
+    navigator('/graph');
+  },[]);
+  
+  // メールアドレス Inputbox
+  const setEmailHandle = useCallback((v:React.ChangeEvent<HTMLInputElement>)=>{
     dispatch(setEmail(v.target.value));
-  }
+  },[]);
 
-  //
-  const setPsdHandle = (v:React.ChangeEvent<HTMLInputElement>)=>{
+  // パスワード Inputbox
+  const setPsdHandle = useCallback((v:React.ChangeEvent<HTMLInputElement>)=>{
     dispatch(setPsd(v.target.value));
-  }
+  },[]);
 
   return (
     <div className="login">

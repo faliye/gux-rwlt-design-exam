@@ -3,17 +3,25 @@ import {
   RouteObject,
 } from "react-router-dom";
 
+import {Layout} from './component'
+
 import Login from "./pages/logIn/Login";
 import Graph from "./pages/graph/Graph";
 
 export const routeConfig: RouteObject[]=[
   {
-    path: '/',
+    path: '',
     element: <Login />,
   },
   {
-    path: '/graph',
-    element: <Graph />,
+    path: '/',
+    element: <Layout />,
+    children:[
+      {
+        path: 'graph',
+        element: <Graph /> 
+      }
+    ]
   }
 ];
 
