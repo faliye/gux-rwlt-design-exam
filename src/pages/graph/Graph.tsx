@@ -11,6 +11,7 @@ function Graph(){
   const {matter,classification,displayType,gender} = useSelector((state:RootState )=>state.graphStateSlice);
   useEffect(()=>{
     getGraph({matter,classification,displayType,gender}).then(res=>console.log(res));
+    console.count()
   },[matter,classification,displayType,gender]);
 
   return (

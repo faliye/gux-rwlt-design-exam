@@ -4,18 +4,14 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://opendata.resas-portal.go.jp/api/v1';
 // timeout
 axios.defaults.timeout = 10000;
-// post headers
-// axios.defaults.headers = {
-//   'Content-Type': 'application/json;charset=UTF-8',
-// };
-axios.defaults.withCredentials = true;
 // request interceptors
 axios.interceptors.request.use(
   (config: any) => {
     return {
       ...config,
-      headers: {
-      },
+      headers:{
+        'x-api-key': 'sti4aCf6JAliQkmewbleLphIx0uTTUk7TzPZzruX'
+      }
     };
   },
   (error) => {
@@ -59,10 +55,6 @@ export function get(url: string, params: any) {
     axios
       .get(url, {
         params: params,
-        headers:{
-            'Content-Type': 'application/json;charset=UTF-8',
-            'Access-Control-Allow-Origin':'*',
-        }
       })
       .then((res) => {
         resolve(res.data);
