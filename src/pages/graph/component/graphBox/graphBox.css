@@ -30,6 +30,10 @@
 }
 .graph-box{
     height: calc(100% - 140px);
-    max-width: 830px;
-    margin: 0 auto;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    box-sizing: border-box;
 }

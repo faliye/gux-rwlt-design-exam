@@ -1,45 +1,78 @@
-import { Area, AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Line } from 'recharts';
-import { CustomizedAxisTick } from './customizedAxisTick/CustomizedAxisTick';
-import { CustomizedYxisTick } from './customizedYxisTick/CustomizedYxisTick';
+import { useEffect, useRef } from 'react';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    ChartOptions,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+
+import { GetGraphResultChangesData } from '../../../../service/graph/graph';
 
 import './graphBox.css';
 
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+export const options = {
+    responsive: true,
+    interaction: {
+        intersect: false,
+    },
+    plugins: {
+        legend: {
+            display: false
+        },
+    },
+    scales: {
+        x: {
+            display: true,
+        },
+        y: {
+            display: true,
+            suggestedMin: 20,
+            suggestedMax: 90,
+            ticks: {
+                callback: (value: number | string) => `${value}万人`
+            },
+        }
+    }
+};
+
 function GraphBox(props: any) {
-    console.log(props.data[0]?.data || [])
+    const data: any = {
+        labels: (props.data[0]?.data || []).map((item: GetGraphResultChangesData) => item.year + ' 年'),
+        datasets: [
+            {
+                data: (props.data[0]?.data || []).map((item: GetGraphResultChangesData) => item.value),
+                borderColor: 'rgba(185, 185, 185, 0.4)',
+                backgroundColor: 'rgba(185, 185, 185, 0.5)',
+            }
+        ]
+    }
+
     return (
         <div className="graph-wrap">
             <div className="graph-container">
                 <h3>兵庫県の就職者数・進学者数の推移</h3>
                 <div className="graph-box">
-                    <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart
-                            width={500}
-                            height={300}
-                            maxBarSize={830}
-                            data={props.data[0]?.data || []}
-                            margin={{
-                                top: 20,
-                                right: 30,
-                                left: 20,
-                                bottom: 10,
-                            }}
-                        >
-                            <CartesianGrid />
-                            <XAxis dataKey="year" tick={<CustomizedAxisTick />} />
-                            <YAxis tickCount={8} domain={[20, 90]} tick={<CustomizedYxisTick />} />
-                            <Tooltip />
-                            <Area
-                                dataKey="value"
-                                stroke="rgba(185, 185, 185, 0.5)"
-                                label={false}
-                                strokeWidth={4}
-                                fill="rgba(0,0,0,0)"
-                                activeDot={{ stroke: 'rgba(185, 185, 185, 0.5)', strokeWidth: 3 }}
-                                dot={{ stroke: 'rgba(185, 185, 185, 0.5)', strokeWidth: 2 }}
-                                isAnimationActive={false}
-                            />
-                        </AreaChart>
-                    </ResponsiveContainer>
+                    <Line
+                        options={options}
+                        data={data}
+                    />
                 </div>
             </div>
         </div>
