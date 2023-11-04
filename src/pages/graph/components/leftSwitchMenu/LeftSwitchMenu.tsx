@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RadioGroup } from '../../../../components';
@@ -20,22 +20,21 @@ function LeftSwitchMenu() {
     const dispatch = useDispatch();
     const [displayTypeSetting, setDisplayTypeSetting] = useState(DISPLAY_TYPE_SETTING[0]);
 
-    const onChange = useCallback((keyName: GraphParamsKeys, v: ChangeEvent<HTMLInputElement>) => {
+    const onChange = useCallback((keyName: GraphParamsKeys, v: keyof typeof DISPLAY_TYPE_SETTING | string) => {
         // classification分類を変更して、パーティションを変更して、デフォルト値をリセットする。
         if (keyName === "classification") {
-            const k: string = v.target.value;
-            if (k) {
-                setDisplayTypeSetting(DISPLAY_TYPE_SETTING[k as unknown as keyof typeof DISPLAY_TYPE_SETTING])
+            if (v) {
+                setDisplayTypeSetting(DISPLAY_TYPE_SETTING[v as keyof typeof DISPLAY_TYPE_SETTING])
                 dispatch(setParamsState({
                     key: 'displayType',
-                    value: DISPLAY_TYPE_SETTING[k as unknown as keyof typeof DISPLAY_TYPE_SETTING].data[0].value,
+                    value: DISPLAY_TYPE_SETTING[v as keyof typeof DISPLAY_TYPE_SETTING].data[0].value,
                 }));
             }
         }
         // 自分自身に変更パラメータを渡す。
         dispatch(setParamsState({
             key: keyName,
-            value: v.target.value,
+            value: v as string,
         }));
     }, [dispatch]);
 

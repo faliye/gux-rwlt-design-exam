@@ -16,8 +16,7 @@ function Graph() {
     getGraph({ matter, classification, displayType, gender }).then((res: GetGraphResult) => {
       dispatch(setGrapnDataState(res.result.changes));
     });
-    console.count()
-  }, [matter, classification, displayType, gender]);
+  }, [matter, classification, displayType, gender,dispatch]);
 
   return (
     <div className="graph">

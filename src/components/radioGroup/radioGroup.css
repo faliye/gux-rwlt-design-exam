@@ -1,0 +1,63 @@
+.radio-Group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.radio-Group-title {
+    color: rgb(51, 65, 85);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.radio-Group-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+.radio-Group-item {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.radio-Group-item input {
+    display: none;
+}
+
+.radio-Group-item-icon {
+    position: absolute;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #b9b8b8;
+    border-radius: 24px;
+}
+
+.radio-Group-item-icon span {
+    background: white;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 7px;
+    left: 4px;
+    top: 4px;
+}
+
+.radio-Group-item-icon:hover {
+    background-color: rgba(213, 213, 213, 0.5);
+}
+
+
+
+.radio-Group-item-title {
+    padding-left: 26px;
+}
