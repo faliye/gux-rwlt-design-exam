@@ -36,8 +36,6 @@
 .radio-Group-item-icon {
     position: absolute;
     box-sizing: border-box;
-    width: 20px;
-    height: 20px;
     border: 1px solid #b9b8b8;
     border-radius: 24px;
 }

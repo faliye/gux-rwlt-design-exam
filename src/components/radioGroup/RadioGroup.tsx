@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent } from 'react';
+import { ChangeEvent, MouseEvent,useRef,useEffect, useState } from 'react';
 
 import './radioGroup.css';
 
@@ -11,6 +11,9 @@ interface RadioGroupProps {
 }
 
 function RadioGroup(props: RadioGroupProps) {
+  // 最初の読み込み スタイルが異なる　outlineがない
+  const [isFirstMount, setIsFirstMount] =  useState<boolean>(true);
+
   return (
     <div className="radio-Group">
       <div className="radio-Group-title">{props.title}</div>
@@ -21,7 +24,10 @@ function RadioGroup(props: RadioGroupProps) {
               <div
                 className="radio-Group-item"
                 key={item.value}
-                onClick={() => props.onChange(item.value)}
+                onClick={() => {
+                  props.onChange(item.value);
+                  setIsFirstMount(false);
+                }}
               >
                 <input
                   type="radio"
@@ -33,9 +39,13 @@ function RadioGroup(props: RadioGroupProps) {
                 <span
                   className="radio-Group-item-icon"
                   style={{
+                    width: props.value === item.value ? '20px': '16px',
+                    height: props.value === item.value ? '20px': '16px',
+                    borderRadius: props.value === item.value ? '20px': '16px',
+                    marginLeft: props.value === item.value ? '0': '2px',
                     backgroundColor: props.value === item.value ? 'rgb(37, 99, 235)' : '',
-                    border: props.value === item.value ? '3px solid white' : '',
-                    outline: props.value === item.value ? '2px solid rgb(37, 99, 235)' : 'none',
+                    border: props.value === item.value ? '3px solid white' : '1px solid #b9b8b8',
+                    outline: !isFirstMount && props.value === item.value ? '2px solid rgb(37, 99, 235)' : 'none',
                   }}
                 >
                   {

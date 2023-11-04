@@ -37,7 +37,7 @@ function GraphBox(props: any) {
         // resizeHandler register
         window.addEventListener('resize', resizeHandler);
         return ()=>{
-            // unmountの時 resizeHandler remove
+            // unmountの時 resizeHandler removeEventListener
             window.removeEventListener('resize', resizeHandler);
         }
     }, [resizeHandler]);
