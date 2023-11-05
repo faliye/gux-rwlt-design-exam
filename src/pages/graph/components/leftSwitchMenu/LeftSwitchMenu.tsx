@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RadioGroup } from '../../../../components';
 import { RootState } from '../../../../store';
-import { setParamsState } from '../../../../store/graphStateSlice';
+import { setParamsState } from '../../../../store/pages/graphStateSlice';
 import { GraphParamsKeys } from '../../../../store/store';
 
 import {

@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 
-import { setEmail, setPsd } from '../../store/userInfoSlice';
+import { setEmail, setPsd } from '../../store/pages/userInfoSlice';
 
 import './login.css';
 

@@ -1,9 +1,8 @@
 body {
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', '宋体';
+  overflow: hidden;
   margin: 0;
-  font-family: 'Noto Sans JP', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    overflow: hidden;
 }
 
 #root {

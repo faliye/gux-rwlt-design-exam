@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
 import { LeftSwitchMenu, GraphBox } from './components';
-import { setGrapnDataState } from '../../store/graphStateSlice';
+import { setGrapnDataState } from '../../store/pages/graphStateSlice';
 import { getGraph } from '../../service/graph';
 
 import './graph.css';

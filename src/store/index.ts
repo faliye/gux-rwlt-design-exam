@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import globalState from './globalStateSlice';
-import userInfoState from './userInfoSlice';
-import graphStateSlice from './graphStateSlice';
+import userInfoState from './pages/userInfoSlice';
+import graphStateSlice from './pages/graphStateSlice';
 
 export const store = configureStore({
     reducer: {

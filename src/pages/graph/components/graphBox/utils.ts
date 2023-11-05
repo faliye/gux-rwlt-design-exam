@@ -3,7 +3,7 @@ import { GetGraphResultChangesData, GetGraphResultChange } from '../../../../ser
 export const createData = (data: GetGraphResultChange) => {
     const dataArr = (data?.data || []).map((item: GetGraphResultChangesData) => item.value);
     return {
-        labels: (data?.data || []).map((item: GetGraphResultChangesData) => item.year + ' 年'),
+        labels: (data?.data || []).map((item: GetGraphResultChangesData) => item.year + '年'),
         datasets: [
             {
                 data: dataArr,

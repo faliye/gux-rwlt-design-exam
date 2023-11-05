@@ -1,6 +1,7 @@
-import { ChangeEvent, MouseEvent,useRef,useEffect, useState } from 'react';
+import { useState, useCallback } from 'react';
 
 import './radioGroup.css';
+import { createStyle } from './constans';
 
 interface RadioGroupProps {
   title: string,
@@ -12,7 +13,12 @@ interface RadioGroupProps {
 
 function RadioGroup(props: RadioGroupProps) {
   // 最初の読み込み スタイルが異なる　outlineがない
-  const [isFirstMount, setIsFirstMount] =  useState<boolean>(true);
+  const [isFirstMount, setIsFirstMount] = useState<boolean>(true);
+  const createStyleHandler = useCallback(createStyle, []);
+  const onClickHandler = useCallback((value: string) => {
+    props.onChange(value);
+    setIsFirstMount(false);
+  }, [props]);
 
   return (
     <div className="radio-Group">
@@ -24,32 +30,18 @@ function RadioGroup(props: RadioGroupProps) {
               <div
                 className="radio-Group-item"
                 key={item.value}
-                onClick={() => {
-                  props.onChange(item.value);
-                  setIsFirstMount(false);
-                }}
+                onClick={onClickHandler.bind(null, item.value)}
               >
                 <input
                   type="radio"
                   value={item.value}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => props.onChange(e.target.value)}
-                  onClick={(e: MouseEvent<HTMLInputElement>) => e.stopPropagation()}
-                  checked={props.value === item.value}
                 />
                 <span
                   className="radio-Group-item-icon"
-                  style={{
-                    width: props.value === item.value ? '20px': '16px',
-                    height: props.value === item.value ? '20px': '16px',
-                    borderRadius: props.value === item.value ? '20px': '16px',
-                    marginLeft: props.value === item.value ? '0': '2px',
-                    backgroundColor: props.value === item.value ? 'rgb(37, 99, 235)' : '',
-                    border: props.value === item.value ? '3px solid white' : '1px solid #b9b8b8',
-                    outline: !isFirstMount && props.value === item.value ? '2px solid rgb(37, 99, 235)' : 'none',
-                  }}
+                  style={createStyleHandler(item.value, props.value, isFirstMount)}
                 >
                   {
-                    props.value === item.value ? <span /> : null
+                    props.value === item.value && <span />
                   }
                 </span>
                 <span className="radio-Group-item-title">{item.title}</span>
