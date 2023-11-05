@@ -3,10 +3,10 @@ import {
   RouteObject,
 } from "react-router-dom";
 
-import Layout from './layout/layout/Layout'
+import Layout from '../layout/layout/Layout'
 
-import Login from "./pages/logIn/Login";
-import Graph from "./pages/graph/Graph";
+import Login from "../pages/logIn/Login";
+import Graph from "../pages/graph/Graph";
 
 export const routeConfig: RouteObject[] = [
   {

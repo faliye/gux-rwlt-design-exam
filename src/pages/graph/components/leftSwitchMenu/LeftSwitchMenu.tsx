@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RadioGroup } from '../../../../components';
 import { RootState } from '../../../../store';
-import { setParamsState } from '../../../../store/pages/graphStateSlice';
+import { setParamsState } from '../../../../store/pages/graph/graphStateSlice';
 import { GraphParamsKeys } from '../../../../store/store';
 
 import {
@@ -11,7 +11,7 @@ import {
     CLASSIFACTION_SETTING,
     DISPLAY_TYPE_SETTING,
     GERDER_SETTING
-} from '../../../../constants'
+} from '../../../../store/pages/graph/constants'
 
 import './leftSwitchMenu.css';
 

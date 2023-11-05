@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { GraphState, GraphParamsAction } from '../store';
-import { CLASSIFACTION_SETTING, DISPLAY_TYPE_SETTING, GERDER_SETTING, MATTER_SETTING } from '../../constants';
+import { GraphState, GraphParamsAction } from '../../store';
+import { CLASSIFACTION_SETTING, DISPLAY_TYPE_SETTING, GERDER_SETTING, MATTER_SETTING } from './constants';
 
 export const graphStateSlice = createSlice({
     name: "graph",

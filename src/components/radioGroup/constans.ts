@@ -1,13 +1,13 @@
-const RADIO_NORMAL_STYLE = {
+export const RADIO_NORMAL_STYLE = {
     width: '16px',
     height: '16px',
     borderRadius: '16px',
     backgroundColor: '',
     border: '1px solid #b9b8b8',
     outline: 'none',
-}
+};
 
-const RADIO_ACTIVE_STYLE = {
+export const RADIO_ACTIVE_STYLE = {
     width: '20px',
     height: '20px',
     borderRadius: '20px',
