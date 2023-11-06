@@ -35,10 +35,10 @@ function GraphBox(props: any) {
         // 初回実行時 responsive判定
         resizeHandler();
         // resizeHandler register
-        window.addEventListener('resize', resizeHandler);
+        document.addEventListener('resize', resizeHandler);
         return ()=>{
             // unmountの時 resizeHandler removeEventListener
-            window.removeEventListener('resize', resizeHandler);
+            document.removeEventListener('resize', resizeHandler);
         }
     }, [resizeHandler]);
 

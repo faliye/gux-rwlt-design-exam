@@ -1,8 +1,6 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent,waitFor } from '@testing-library/react';
 import RadioGroup from './RadioGroup';
-import { MATTER_SETTING } from '../../store/pages/graph/constants';
-import { RADIO_ACTIVE_STYLE } from './constans';
+import { MATTER_SETTING, CLASSIFACTION_SETTING, DISPLAY_TYPE_SETTING } from '../../store/pages/graph/constants';
 
 const initialData = {
   title: MATTER_SETTING.title,
@@ -11,34 +9,36 @@ const initialData = {
   onChange(v: string) { },
 };
 
-
-test('test: render RadioGroups, content works right', () => {
+test('RadioGroups test: render, content works right', () => {
   const { getByText } = render(<RadioGroup {...initialData} />);
 
-  expect(getByText(MATTER_SETTING.title)).toBeInTheDocument();
+  expect(getByText(MATTER_SETTING.title)).toBeVisible();
 
   MATTER_SETTING.data.forEach((item) => {
-    expect(getByText(item.title)).toBeInTheDocument();
+    expect(getByText(item.title)).toBeVisible();
   });
 
 });
 
-test('test: only one have inital style', () => {
+test('RadioGroups test: only one have inital style', () => {
   const { getByText, asFragment } = render(<RadioGroup {...initialData} />);
 
-  expect(getByText(MATTER_SETTING.title)).toBeInTheDocument();
+  expect(getByText(MATTER_SETTING.title)).toBeVisible();
   const innerText = asFragment().firstElementChild?.children[1]?.innerHTML || '';
   const activeStyle = /border: 3px solid white; outline: none;/ig
   expect(activeStyle.test(innerText)).toEqual(true);
 
 });
 
-test('test: click all radio, actived num ==> 1', () => {
+test('RadioGroups test: click all radio, actived num ==> 1', async () => {
   const { getByText, asFragment } = render(<RadioGroup {...initialData} />);
 
-  MATTER_SETTING.data.forEach((item) => {
-    fireEvent.click(getByText(new RegExp('^' + item.title, 'i')));
+  await waitFor(()=>{
+    MATTER_SETTING.data.forEach((item) => {
+      fireEvent.click(getByText(new RegExp('^' + item.title, 'i')));
+    });
   });
+ 
 
   // test
   const innerText = asFragment().firstElementChild?.innerHTML || '';
