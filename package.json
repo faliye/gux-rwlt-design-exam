@@ -28,6 +28,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,8 +50,12 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
+    "@commitlint/travis-cli": "^18.2.0",
     "customize-cra": "^1.0.0",
     "customize-cra-less-loader": "^2.0.0",
+    "husky": "^8.0.3",
     "jest-canvas-mock": "^2.5.2",
     "less": "^4.2.0",
     "less-loader": "^11.1.3",
