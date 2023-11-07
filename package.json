@@ -49,12 +49,15 @@
     ]
   },
   "devDependencies": {
+    "customize-cra": "^1.0.0",
+    "customize-cra-less-loader": "^2.0.0",
     "jest-canvas-mock": "^2.5.2",
+    "less": "^4.2.0",
+    "less-loader": "^11.1.3",
     "react-app-rewired": "^2.2.1"
   },
   "jest": {
     "setupFiles": [
-      "./shim.ts",
       "./setup-jest.ts"
     ],
     "moduleNameMapper": {

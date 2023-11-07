@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { RootState } from '../../store';
 
 import avatar from '../../img/Avatar.svg';
-import './layout.css';
+import './layout.less';
 
 function Layout() {
   const email = useSelector((state: RootState) => state.userInfoState.email);

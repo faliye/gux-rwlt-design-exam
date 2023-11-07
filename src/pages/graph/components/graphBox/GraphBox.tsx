@@ -12,7 +12,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { createData, createOptions,resizeCallback } from './utils';
 
-import './graphBox.css';
+import './graphBox.less';
 
 ChartJS.register(
     CategoryScale,

@@ -1,6 +1,7 @@
-import { render, fireEvent,waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import RadioGroup from './RadioGroup';
 import { MATTER_SETTING, CLASSIFACTION_SETTING, DISPLAY_TYPE_SETTING } from '../../store/pages/graph/constants';
+import { createStyle, OUTLINE_VALUE } from './constans'
 
 const initialData = {
   title: MATTER_SETTING.title,
@@ -33,15 +34,22 @@ test('RadioGroups test: only one have inital style', () => {
 test('RadioGroups test: click all radio, actived num ==> 1', async () => {
   const { getByText, asFragment } = render(<RadioGroup {...initialData} />);
 
-  await waitFor(()=>{
+  await waitFor(() => {
     MATTER_SETTING.data.forEach((item) => {
       fireEvent.click(getByText(new RegExp('^' + item.title, 'i')));
     });
   });
- 
 
   // test
   const innerText = asFragment().firstElementChild?.innerHTML || '';
   const activeStyle = /border: 3px solid white; outline: 2px solid rgb\(37, 99, 235\);/ig
   expect(innerText.match(activeStyle)?.length).toEqual(1);
 });
+
+test('RadioGroups test: createStyle fuction ', async () => {
+  let isFirstMount = true;
+  expect(createStyle('10', '10', isFirstMount).outline).toEqual('none');
+  isFirstMount = false;
+  expect(createStyle('10', '10', isFirstMount).outline).toEqual(OUTLINE_VALUE);
+});
+

@@ -1,3 +1,4 @@
+// matter config
 export const MATTER_SETTING = {
     title: '表示内容',
     data: [
@@ -20,6 +21,7 @@ export const MATTER_SETTING = {
     ]
 };
 
+// classifaction config
 export const CLASSIFACTION_SETTING = {
     title: '表示分類',
     data: [
@@ -38,7 +40,7 @@ export const CLASSIFACTION_SETTING = {
     ]
 }
 
-
+// display config
 export const DISPLAY_TYPE_SETTING = {
     // CLASSIFACTION_ARR === 0
     0: {
@@ -80,6 +82,7 @@ export const DISPLAY_TYPE_SETTING = {
     }
 };
 
+// gender config
 export const GERDER_SETTING = {
     title: '性別',
     data: [

@@ -4,9 +4,11 @@ import { RouterProvider } from "react-router-dom";
 import { Provider } from 'react-redux'
 import { createRouter } from './routes/routers';
 import { store } from './store';
-import './index.css';
-
 import reportWebVitals from './reportWebVitals';
+
+import './index.less';
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -13,7 +13,7 @@ import {
     GERDER_SETTING
 } from '../../../../store/pages/graph/constants'
 
-import './leftSwitchMenu.css';
+import './leftSwitchMenu.less';
 
 function LeftSwitchMenu() {
     const { matter, classification, displayType, gender } = useSelector((state: RootState) => state.graphStateSlice);

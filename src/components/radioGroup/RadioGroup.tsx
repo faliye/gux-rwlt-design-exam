@@ -1,7 +1,8 @@
 import { useState, useCallback } from 'react';
-
-import './radioGroup.css';
 import { createStyle } from './constans';
+
+import './radioGroup.less';
+
 
 interface RadioGroupProps {
   title: string,
@@ -21,7 +22,7 @@ function RadioGroup(props: RadioGroupProps) {
   }, [props]);
 
   return (
-    <div className="radio-Group">
+    <div className="radio-group">
       <div className="radio-Group-title">{props.title}</div>
       <div className="radio-Group-box">
         {

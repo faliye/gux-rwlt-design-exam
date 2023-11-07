@@ -1,5 +1,10 @@
 import { GetGraphResultChangesData, GetGraphResultChange } from '../../../../service/graph/graph';
 
+/**
+ * 
+ * @param data 
+ * @returns chart line data
+ */
 export const createData = (data: GetGraphResultChange) => {
     const dataArr = (data?.data || []).map((item: GetGraphResultChangesData) => item.value);
     return {
@@ -15,6 +20,11 @@ export const createData = (data: GetGraphResultChange) => {
     }
 };
 
+/**
+ * 
+ * @param data 
+ * @returns chart line option
+ */
 export const createOptions = (data: GetGraphResultChange) => {
     const dataArr = (data?.data || []).map((item: GetGraphResultChangesData) => item.value);
     return {

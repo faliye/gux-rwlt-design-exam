@@ -7,7 +7,7 @@ import { setGrapnDataState } from '../../store/pages/graph/graphStateSlice';
 import { getGraph } from '../../service/graph';
 import { GetGraphResult } from '../../service/graph/graph';
 
-import './graph.css';
+import './graph.less';
 
 function Graph() {
   const { matter, classification, displayType, gender, data } = useSelector((state: RootState) => state.graphStateSlice);
