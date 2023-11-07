@@ -1,4 +1,4 @@
-import { render, waitFor } from '@testing-library/react';
+import { render,screen, waitFor } from '@testing-library/react';
 import Graph from './Graph';
 import { Provider } from 'react-redux';
 import { store } from '../../store';
@@ -100,11 +100,10 @@ const mockData = {
 };
 
 test('Graph test: Graph is rendered', async () => {
-  const { getByText } = render(<Provider store={store}><Graph /></Provider>);
-  expect(getByText(/フィルター/)).toBeVisible();
+  render(<Provider store={store}><Graph /></Provider>);
+  expect(screen.getByText(/フィルター/)).toBeVisible();
 
   await waitFor(() => {
-    const { data, ...params } = store.getState().graphStateSlice;
     Promise.resolve(mockData).then(res => {
       store.dispatch(setGrapnDataState(res.changes))
     })

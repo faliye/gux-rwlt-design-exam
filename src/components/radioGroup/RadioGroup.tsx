@@ -22,7 +22,7 @@ function RadioGroup(props: RadioGroupProps) {
   }, [props]);
 
   return (
-    <div className="radio-group">
+    <div className="radio-Group">
       <div className="radio-Group-title">{props.title}</div>
       <div className="radio-Group-box">
         {

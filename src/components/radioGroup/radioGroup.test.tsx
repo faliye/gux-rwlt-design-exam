@@ -1,6 +1,6 @@
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor,screen } from '@testing-library/react';
 import RadioGroup from './RadioGroup';
-import { MATTER_SETTING, CLASSIFACTION_SETTING, DISPLAY_TYPE_SETTING } from '../../store/pages/graph/constants';
+import { MATTER_SETTING } from '../../store/pages/graph/constants';
 import { createStyle, OUTLINE_VALUE } from './constans'
 
 const initialData = {
@@ -11,20 +11,20 @@ const initialData = {
 };
 
 test('RadioGroups test: render, content works right', () => {
-  const { getByText } = render(<RadioGroup {...initialData} />);
+  render(<RadioGroup {...initialData} />);
 
-  expect(getByText(MATTER_SETTING.title)).toBeVisible();
+  expect(screen.getByText(MATTER_SETTING.title)).toBeVisible();
 
   MATTER_SETTING.data.forEach((item) => {
-    expect(getByText(item.title)).toBeVisible();
+    expect(screen.getByText(item.title)).toBeVisible();
   });
 
 });
 
 test('RadioGroups test: only one have inital style', () => {
-  const { getByText, asFragment } = render(<RadioGroup {...initialData} />);
+  const { asFragment } = render(<RadioGroup {...initialData} />);
 
-  expect(getByText(MATTER_SETTING.title)).toBeVisible();
+  expect(screen.getByText(MATTER_SETTING.title)).toBeVisible();
   const innerText = asFragment().firstElementChild?.children[1]?.innerHTML || '';
   const activeStyle = /border: 3px solid white; outline: none;/ig
   expect(activeStyle.test(innerText)).toEqual(true);
@@ -32,11 +32,11 @@ test('RadioGroups test: only one have inital style', () => {
 });
 
 test('RadioGroups test: click all radio, actived num ==> 1', async () => {
-  const { getByText, asFragment } = render(<RadioGroup {...initialData} />);
+  const { asFragment } = render(<RadioGroup {...initialData} />);
 
   await waitFor(() => {
     MATTER_SETTING.data.forEach((item) => {
-      fireEvent.click(getByText(new RegExp('^' + item.title, 'i')));
+      fireEvent.click(screen.getByText(new RegExp('^' + item.title, 'i')));
     });
   });
 
@@ -46,7 +46,7 @@ test('RadioGroups test: click all radio, actived num ==> 1', async () => {
   expect(innerText.match(activeStyle)?.length).toEqual(1);
 });
 
-test('RadioGroups test: createStyle fuction ', async () => {
+test('RadioGroups test: createStyle fuction', async () => {
   let isFirstMount = true;
   expect(createStyle('10', '10', isFirstMount).outline).toEqual('none');
   isFirstMount = false;
