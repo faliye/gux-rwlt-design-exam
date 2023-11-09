@@ -4,7 +4,6 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'eslint-config-semistandard',
     'plugin:react/recommended'
   ],
   overrides: [

@@ -3,7 +3,6 @@ import { createStyle } from './constans';
 
 import './radioGroup.less';
 
-
 interface RadioGroupProps {
   title: string,
   groupData: { value: string, title: string }[],

@@ -23,7 +23,7 @@ npm run eslint
 ----/store    
 ----/utils  
 ----index.tsx  
-----index.less 
+----index.less   
 ----react-app-env.d.ts      
 --.eslintrc  
 --.gitignore   
